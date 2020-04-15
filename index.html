@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
@@ -25,7 +25,20 @@
         </div>
       </div>
     </section>
-    <div class="container"></div>
+    <div class="container">
+      <div class="dropdown is-active">
+        <input type="text">
+        <div class="dropdown-menu">
+          <div class="dropdown-content">
+            <a class="dropdown-item">Movie #1</a>
+            <a class="dropdown-item">Movie #2</a>
+            <a class="dropdown-item">Movie #3</a>
+          </div>
+        </div>
+      </div>
+      <div id="target"></div>      
+    </div>
+    <script src="utils.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
