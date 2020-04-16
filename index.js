@@ -1,65 +1,31 @@
-const fetchDataSearch = async(searchTerm)=>{
-    const response =await axios.get("https://omdbapi.com",{
-        params:{
-            apikey:"thewdb",
-            s: searchTerm
-        }
-    });
-    if(response.data.Error) return [];
-    return response.data.Search;
-}
-const root =document.querySelector(".autocomplete");
-root.innerHTML=`
-<label><strong>Search for a Movie</strong></label>
-<input class="input"/>
-<div class="dropdown">
-    <div class="dropdown-menu">
-        <div class="dropdown-content results"></div>
-    </div>
-</div>
-`;
-    
-const input =document.querySelector("input");
-const dropdown = document.querySelector(".dropdown");
-const resultWrapper =document.querySelector(".results");
 
-const onInput =async(event)=>{
-    if(input.value.length){
-        const movies = await fetchDataSearch(event.target.value);
-        if(!movies.length){
-            dropdown.classList.remove("is-active");
-            return;
-        }
-        resultWrapper.innerHTML="";
-        dropdown.classList.add("is-active");
-        for(let movie of movies){
-            const option =document.createElement("a");
-            const imgSrc = movie.Poster==="N/A"?"":movie.Poster;
-            option.classList.add("dropdown-item");
-            option.innerHTML=`
-               <img src="${imgSrc}"/>
-               ${movie.Title}
-            `;
-            option.addEventListener("click",()=>{
-                dropdown.classList.remove("is-active");
-                input.value = movie.Title;
-                onMovieSelect(movie);
-            });
-            resultWrapper.appendChild(option);
-        }
-    }else{
-        dropdown.classList.remove("is-active");
-    }
-}
-
-input.addEventListener("input",debounce(onInput));
-
-document.addEventListener("click",(event)=>{
-    if(!root.contains(event.target)) {
-        dropdown.classList.remove("is-active");
-        input.value = "";
+createAutoComplete({
+    root:document.querySelector(".autocomplete"),
+    renderOption(movie){
+     const imgSrc = movie.Poster==="N/A"?'':movie.Poster;
+     return `
+        <img src="${imgSrc}"/>
+        ${movie.Title}      -    ${movie.Year}
+    `;
+    },
+    onOptionSelect(movie){
+        onMovieSelect(movie);
+    },
+    inputValue(movie){
+        return movie.Title;
+    },
+    async fetchData(searchTerm){
+        const response =await axios.get("https://omdbapi.com",{
+            params:{
+                apikey:"thewdb",
+                s: searchTerm
+            }
+        });
+        if(response.data.Error) return [];
+        return response.data.Search;
     }
 });
+
 
 const onMovieSelect= async(movie)=>{
     const {imdbID:id} = movie;
