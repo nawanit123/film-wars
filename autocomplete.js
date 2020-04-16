@@ -44,7 +44,7 @@ input.addEventListener("input",debounce(onInput));
 document.addEventListener("click",(event)=>{
     if(!root.contains(event.target)) {
         dropdown.classList.remove("is-active");
-        input.value = "";
+        // input.value = "";
     }
 });
 
