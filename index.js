@@ -1,4 +1,3 @@
-require('dotenv').config();
 const autocompleteConfig = {
     renderOption(movie){
      const imgSrc = movie.Poster === "N/A" ? '':movie.Poster;
@@ -13,7 +12,7 @@ const autocompleteConfig = {
     async fetchData(searchTerm){
         const response =await axios.get("https://omdbapi.com",{
             params:{
-                apikey:89a8dbfc,
+                apikey:"89a8dbfc",
                 s: searchTerm 
             }
         });
