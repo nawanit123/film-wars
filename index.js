@@ -110,42 +110,53 @@ const movieTemplate = (movieDetail)=>{
     },0);
     
 
-
     return `
     <article class="media">
-    <figure class="media-left">
-      <p class="image">
-        <img src="${Poster}"/>
-      </p>
-    </figure>
-    <div class="media-content">
-      <div class="content">
-        <h1>${Title}</h1>
-        <h4>${Genre}</h4>
-        <p>${Plot}</p>
+    <div class="header-element">
+      <figure class="media-left">
+          <p class="image">
+              <img src="${Poster}"/>
+          </p>
+      </figure>
+      <div class="media-content">
+          <div class="content">
+              <h1>${Title}</h1>
+              <h4>${Genre}</h4>
+              <p>${Plot}</p>
+          </div>
       </div>
     </div>
   </article>
-    <article data-value = ${awards} class="notification is-primary">
-        <p class="title">${Awards}</p>
-        <p class="subtitle">Awards</p>
-    </article>
-    <article data-value = ${dollars} class="notification is-primary">
-        <p class="title">${BoxOffice}</p>
-        <p class="subtitle">Box Office</p>
-    </article>
-    <article data-value = ${metaScore} class="notification is-primary">
-        <p class="title">${Metascore}</p>
-        <p class="subtitle">Metascore</p>
-    </article>
-    <article data-value = ${imdbRating} class="notification is-primary">
-        <p class="title">${IMDBRating}</p>
-        <p class="subtitle">imdb Rating</p>
-    </article>
-    <article data-value = ${imdbVotes} class="notification is-primary">
-        <p class="title">${IMDBVotes}</p>
-        <p class="subtitle">imdbVotes</p>
-    </article>
+  <article data-value = ${awards} class="notification is-primary">
+    <div class="header-element">
+      <p class="title">${Awards}</p>
+      <p class="subtitle">Awards</p>
+    </div>
+  </article>
+  <article data-value = ${dollars} class="notification is-primary">
+    <div class="header-element">
+      <p class="title">${BoxOffice}</p>
+      <p class="subtitle">Box Office</p>
+    </div>
+  </article>
+  <article data-value = ${metaScore} class="notification is-primary">
+    <div class="header-element">
+      <p class="title">${Metascore}</p>
+      <p class="subtitle">Metascore</p>
+    </div>
+  </article>
+  <article data-value = ${imdbRating} class="notification is-primary">
+    <div class="header-element">
+      <p class="title">${IMDBRating}</p>
+      <p class="subtitle">imdb Rating</p>
+    </div>
+  </article>
+  <article data-value = ${imdbVotes} class="notification is-primary">
+    <div class="header-element">
+      <p class="title">${IMDBVotes}</p>
+      <p class="subtitle">imdbVotes</p>
+    </div>
+  </article>
   
     `;
 }

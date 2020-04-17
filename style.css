@@ -46,3 +46,15 @@ figure .image img {
   height: 50px;
   margin-right: 10px;
 }
+
+#right-summary,#left-summary{
+  display:grid;
+  grid-template-rows: 2.5fr 2fr 1fr 1fr 1fr 1fr ;
+}
+
+article{
+  grid-row: span 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
