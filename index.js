@@ -76,7 +76,7 @@ const runComparison = ()=>{
             rightStat.classList.remove("is-primary");
             rightStat.classList.add("is-warning");
         }
-        else if(isNaN(leftSideValue) || isNaN(rightSideValue)){
+        else if(isNaN(leftSideValue) || isNaN(rightSideValue)||leftSideValue===rightSideValue){
             leftStat.classList.remove("is-primary");
             leftStat.classList.add("is-primary");
 
