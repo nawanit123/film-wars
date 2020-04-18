@@ -73,18 +73,24 @@ const runComparison = ()=>{
         const rightSideValue = parseFloat(rightStat.dataset.value);
 
         if(leftSideValue>rightSideValue){
+            leftStat.classList.remove("is-warning");
+            leftStat.classList.remove("is-primary");
+            leftStat.classList.add("is-primary");
             rightStat.classList.remove("is-primary");
             rightStat.classList.add("is-warning");
         }
         else if(isNaN(leftSideValue) || isNaN(rightSideValue)||leftSideValue===rightSideValue){
+            leftStat.classList.remove("is-warning");
             leftStat.classList.remove("is-primary");
             leftStat.classList.add("is-primary");
 
+            rightStat.classList.remove("is-warning");
             rightStat.classList.remove("is-primary");
             rightStat.classList.add("is-primary");
         }
         else{
             leftStat.classList.remove("is-primary");
+            leftStat.classList.remove("is-warning");
             leftStat.classList.add("is-warning");
         }
 
