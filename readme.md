@@ -1,5 +1,5 @@
 ## Movie fight
-Enter two distinct movies in the respective input fields and we will tell you which one has the better statistics.
+Enter two distinct movies in the respective input fields and we will tell you which one has the better statistics. </br>
 (_link_: https://nawanit123.github.io/film-wars) 
 
 # Technologies and Libraries
